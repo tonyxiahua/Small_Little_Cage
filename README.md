@@ -8,6 +8,8 @@
 运行python script
 
 ## TO-DO 
+先把每行的数据处理成list 然后再转换为dic
+
 把text file 利用python 进行处理 放入Dictionary 做成出现字典
 
 分析出现次数 进行ban人行为，同时收集尝试的用户名，作为未来的攻击字典使用
