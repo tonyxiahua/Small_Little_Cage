@@ -7,6 +7,21 @@
 ## 使用方法
 运行python script
 
+## TO-DO 
+把text file 利用python 进行处理 放入Dictionary 做成出现字典
+
+分析出现次数 进行ban人行为，同时收集尝试的用户名，作为未来的攻击字典使用
+
+将收集过来的出现字典ip地址分析出来，进行处理和过滤
+
+其中ip地址有可能为域名的形式出现，利用python进行转换
+
+如果有可能就进行反向抓肉鸡的程序，这是一个很长的过程
+
+每次处理完就要删掉现有的btmp文件以免重复统计
+
+若成功反向抓鸡，运行同样的程序来继续抓鸡，看看最终的攻击者是谁。
+
 ``` 
 Set your username: git config --global user.name "FIRST_NAME LAST_NAME"
 Set your email address: git config --global user.email "MY_NAME@example.com"
