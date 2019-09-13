@@ -10,6 +10,8 @@ import collections
 import json
 import os
 
+
+dirpath = os.getcwd()
 '''
 Dictionary Class
 Easy Add method for dictionary 
@@ -45,11 +47,11 @@ class text2Dic:
         cmd3 = 'rm -rf /var/log/btmp&&touch /var/log/btmp'
         os.system(cmd3)
         ''''''''''''''''''''''''''''''
-        if os.path.exists('namedb.json'):
-            with open('namedb.json', 'r') as fp:
+        if os.path.exists('data/namedb.json'):
+            with open('data/namedb.json', 'r') as fp:
                 self.name = json.load(fp)
-        if os.path.exists('ipdb.json'):
-            with open('ipdb.json', 'r') as fp:
+        if os.path.exists('data/ipdb.json'):
+            with open('data/ipdb.json', 'r') as fp:
                 self.ip = json.load(fp)
         ''''''''''''''''''''''''''''''''''''''''''    
         with open("btmp.txt") as f:
@@ -69,9 +71,9 @@ class text2Dic:
                 else:
                     self.ip.add((lines[60:].rstrip('\n')),1)
         ''''''''''''''''''''''''''''''''''''''''''            
-        with open('ipdb.json', 'w') as fp:
+        with open('data/ipdb.json', 'w') as fp:
             json.dump(self.ip, fp)    
-        with open('namedb.json', 'w') as fp:
+        with open('data/namedb.json', 'w') as fp:
             json.dump(self.name, fp)        
     
     def nameProcess(self):
@@ -100,7 +102,7 @@ class text2Dic:
     def saveNametoCSV(self):
         self.sortNamebyValue()
         try:
-            with open('NameOutput.csv', 'w') as f:
+            with open('output/NameOutput.csv', 'w') as f:
                 for key in self.orderedName.keys():
                     f.write("%s,%s\n"%(key,self.orderedName[key]))
         except IOError:
@@ -108,7 +110,7 @@ class text2Dic:
     def saveIPtoCSV(self):
         self.sortIPbyValue()
         try:
-            with open('IPoutput.csv', 'w') as f:
+            with open('output/IPoutput.csv', 'w') as f:
                 for key in self.orderedIP.keys():
                     f.write("%s,%s\n"%(key,self.orderedIP[key]))
         except IOError:
@@ -118,13 +120,13 @@ class text2Dic:
     =========================================='''
     def saveNametoJSON(self):
         try:
-            with open('namedb.json', 'w') as fp:
+            with open('data/namedb.json', 'w') as fp:
                 json.dump(self.name, fp) 
         except IOError:
             print("I/O error. FIle still using" )
     def saveIPtoJSON(self):
         try:
-            with open('ipdb.json', 'w') as fp:
+            with open('data/ipdb.json', 'w') as fp:
                 json.dump(self.ip, fp)
         except IOError:
             print("I/O error. FIle still using" )            
@@ -133,13 +135,13 @@ class text2Dic:
     ============================================'''
     def loadNametoDic(self):
         try:
-            with open('namedb.json', 'r') as fp:
+            with open('data/namedb.json', 'r') as fp:
                 self.name = json.load(fp)
         except IOError:
             print("I/O error. FIle still using" )        
     def loadIPtoDic(self):
         try:
-            with open('ipdb.json', 'r') as fp:
+            with open('data/ipdb.json', 'r') as fp:
                 self.ip = json.load(fp)
         except IOError:
             print("I/O error. FIle still using" )  
@@ -154,10 +156,13 @@ def main():
     create new jobs object to text2Dic
     """
     jobs = text2Dic()
+    #Output
     jobs.saveIPtoCSV()
-    #jobs.saveNametoCSV()
+    jobs.saveNametoCSV()
+    #time
     endtime = datetime.datetime.now()
     print("Total time used: ",endtime - startime)
+    #Github PUSH
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "auto import btmp snapshot " + str(datetime.datetime.now())])
     subprocess.call(["git", "push"])      
