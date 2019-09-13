@@ -42,7 +42,7 @@ class text2Dic:
         ''''''''''''''''''''''''''''''
         cmd1 = 'lastb -a > btmp.txt'
         os.system(cmd1)
-        cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+ str(datetime.datetime.now())
+        cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+str(datetime.datetime.now().ctime())
         os.system(cmd2)
         cmd3 = 'rm -rf /var/log/btmp&&touch /var/log/btmp'
         os.system(cmd3)
