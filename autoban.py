@@ -1,12 +1,14 @@
+'''
+Small Little Cage
+Author : Xia Hua 
+2019 Sep 12
+'''
 import subprocess
 import datetime
 import csv
 import collections
 import json
 import os
-'''
-Author : Xia Hua 2019 Sep 12
-'''
 
 '''
 Dictionary Class
@@ -22,7 +24,6 @@ class dicTemplate(dict):
         
 '''
 Text Handling ,dealing with text data
-
 methods:
 nameProcess()              return name dic function 
 printNamebyAlphabet()      to dissplay and print the name
@@ -34,13 +35,15 @@ class text2Dic:
     def __init__(self):
         self.name = dicTemplate()
         self.ip = dicTemplate()
-        #self.dbName = dicTemplate()
-        #self.dbIP = dicTemplate()
         self.orderedName = dicTemplate()
         self.orderedIP = dicTemplate()
         ''''''''''''''''''''''''''''''
-        cmd = 'lastb -a > btmp.txt'
-        os.system(cmd)
+        cmd1 = 'lastb -a > btmp.txt'
+        os.system(cmd1)
+        cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+ str(datetime.datetime.now())
+        os.system(cmd2)
+        cmd3 = 'rm -rf /var/log/btmp&&touch /var/log/btmp'
+        os.system(cmd3)
         ''''''''''''''''''''''''''''''
         if os.path.exists('namedb.json'):
             with open('namedb.json', 'r') as fp:
@@ -139,7 +142,8 @@ class text2Dic:
             with open('ipdb.json', 'r') as fp:
                 self.ip = json.load(fp)
         except IOError:
-            print("I/O error. FIle still using" )            
+            print("I/O error. FIle still using" )  
+  
         
 '''
 main function
@@ -150,19 +154,18 @@ def main():
     create new jobs object to text2Dic
     """
     jobs = text2Dic()
-    #jobs.saveIPtoCSV()
+    jobs.saveIPtoCSV()
     #jobs.saveNametoCSV()
-
     endtime = datetime.datetime.now()
     print("Total time used: ",endtime - startime)
-    #Comment out for disable github push
-    #subprocess.call(["git", "add", "."])
-    #subprocess.call(["git", "commit", "-m", "auto import btmp snapshot " + str(datetime.datetime.now())])
-    #subprocess.call(["git", "push"])
+    subprocess.call(["git", "add", "."])
+    subprocess.call(["git", "commit", "-m", "auto import btmp snapshot " + str(datetime.datetime.now())])
+    subprocess.call(["git", "push"])      
     
 if __name__ == "__main__":
     main()
     
+
 '''
 Example TEXT
 upload   ssh:notty    Thu Sep 12 21:58 - 21:58  (00:00)     113.134.211.228
