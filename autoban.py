@@ -42,7 +42,7 @@ class text2Dic:
         ''''''''''''''''''''''''''''''
         cmd1 = 'lastb -a > btmp.txt'
         os.system(cmd1)
-        cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+str(datetime.datetime.now().ctime())
+        cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+str(datetime.datetime.now().date())+str(datetime.datetime.now().time())
         os.system(cmd2)
         cmd3 = 'rm -rf /var/log/btmp&&touch /var/log/btmp'
         os.system(cmd3)
@@ -151,7 +151,7 @@ class text2Dic:
 main function
 '''
 def main():
-    startime = datetime.datetime.now()
+    #startime = datetime.datetime.now()
     """
     create new jobs object to text2Dic
     """
@@ -160,8 +160,8 @@ def main():
     jobs.saveIPtoCSV()
     jobs.saveNametoCSV()
     #time
-    endtime = datetime.datetime.now()
-    print("Total time used: ",endtime - startime)
+    #endtime = datetime.datetime.now()
+    #print("Total time used: ",endtime - startime)
     #Github PUSH
     subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "auto import btmp snapshot " + str(datetime.datetime.now())])
