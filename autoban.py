@@ -44,16 +44,16 @@ class text2Dic:
         os.system(cmd1)
         cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+str(datetime.datetime.now().date())+str(datetime.datetime.now().time())
         os.system(cmd2)
-        #cmd3 = '> /var/log/btmp'
-        #os.system(cmd3)
-        ''''''''''''''''''''''''''''''
+        cmd3 = "> /var/log/btmp"
+        os.system(cmd3)
+
         if os.path.exists('data/namedb.json'):
             with open('data/namedb.json', 'r') as fp:
                 self.name = json.load(fp)
         if os.path.exists('data/ipdb.json'):
             with open('data/ipdb.json', 'r') as fp:
                 self.ip = json.load(fp)
-        ''''''''''''''''''''''''''''''''''''''''''    
+
         with open("btmp.txt") as f:
             '''
             In the case you are working with Big Data using readlines() 
@@ -69,8 +69,7 @@ class text2Dic:
                 if (lines[60:].rstrip('\n') in self.ip.keys()):
                     self.ip[lines[60:].rstrip('\n')] += 1
                 else:
-                    self.ip.add((lines[60:].rstrip('\n')),1)
-        ''''''''''''''''''''''''''''''''''''''''''            
+                    self.ip.add((lines[60:].rstrip('\n')),1)            
         with open('data/ipdb.json', 'w') as fp:
             json.dump(self.ip, fp)    
         with open('data/namedb.json', 'w') as fp:
