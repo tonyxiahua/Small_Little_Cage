@@ -6,6 +6,7 @@
 
 ## 使用方法
 先创建Crontabs,每小时收集一次攻击者的信息（或者太频繁?改为6小时一次？）
+位于/var/spool/cron
 内容
 ```
 * */1 * * * cd /home/tony/Small_Little_Cage/&&python /home/tony/Small_Little_Cage/autoban.py
