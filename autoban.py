@@ -163,7 +163,7 @@ def main():
     #endtime = datetime.datetime.now()
     #print("Total time used: ",endtime - startime)
     #Github PUSH
-    subprocess.call(["git", "add", "."])
+    subprocess.call(["git", "add", "--all","."])
     subprocess.call(["git", "commit", "-m", "auto import btmp snapshot " + str(datetime.datetime.now())])
     subprocess.call(["git", "push"])      
     
