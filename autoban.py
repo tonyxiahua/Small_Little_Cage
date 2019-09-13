@@ -44,8 +44,8 @@ class text2Dic:
         os.system(cmd1)
         cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+str(datetime.datetime.now().date())+str(datetime.datetime.now().time())
         os.system(cmd2)
-        cmd3 = 'rm -rf /var/log/btmp&&touch /var/log/btmp'
-        os.system(cmd3)
+        #cmd3 = '> /var/log/btmp'
+        #os.system(cmd3)
         ''''''''''''''''''''''''''''''
         if os.path.exists('data/namedb.json'):
             with open('data/namedb.json', 'r') as fp:
