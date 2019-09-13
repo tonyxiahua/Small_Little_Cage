@@ -2,31 +2,53 @@ import subprocess
 import datetime
 import csv
 import collections
+import json
+import os
 '''
 Author : Xia Hua 2019 Sep 12
 '''
+
 '''
+Dictionary Class
 Easy Add method for dictionary 
 '''
 class dicTemplate(dict): 
     # __init__ function 
     def __init__(self): 
         self = dict() 
-
     # Function to add key:value 
     def add(self, key, value): 
         self[key] = value 
         
 '''
 Text Handling ,dealing with text data
-'''
+
+methods:
+nameProcess()              return name dic function 
+printNamebyAlphabet()      to dissplay and print the name
+ipProcess()                return ip dic function
+printIPbyAlphabet() to display and print the ips
+
+''' 
 class text2Dic:
     def __init__(self):
         self.name = dicTemplate()
         self.ip = dicTemplate()
+        #self.dbName = dicTemplate()
+        #self.dbIP = dicTemplate()
         self.orderedName = dicTemplate()
         self.orderedIP = dicTemplate()
-        
+        ''''''''''''''''''''''''''''''
+        cmd = 'lastb -a > btmp.txt'
+        os.system(cmd)
+        ''''''''''''''''''''''''''''''
+        if os.path.exists('namedb.json'):
+            with open('namedb.json', 'r') as fp:
+                self.name = json.load(fp)
+        if os.path.exists('ipdb.json'):
+            with open('ipdb.json', 'r') as fp:
+                self.ip = json.load(fp)
+        ''''''''''''''''''''''''''''''''''''''''''    
         with open("btmp.txt") as f:
             '''
             In the case you are working with Big Data using readlines() 
@@ -43,25 +65,35 @@ class text2Dic:
                     self.ip[lines[60:].rstrip('\n')] += 1
                 else:
                     self.ip.add((lines[60:].rstrip('\n')),1)
+        ''''''''''''''''''''''''''''''''''''''''''            
+        with open('ipdb.json', 'w') as fp:
+            json.dump(self.ip, fp)    
+        with open('namedb.json', 'w') as fp:
+            json.dump(self.name, fp)        
+    
     def nameProcess(self):
         return self.name
     def ipProcess(self):
         return self.ip
+    '''
+    Print the Name function 
+    '''
     def printNamebyAlphabet(self):
         for key in sorted(self.name.keys()):
             print("%s: %s" % (key, self.name[key]))
     def printIPbyAlphabet(self):
         for key in sorted(self.ip.keys()):
             print("%s: %s" % (key, self.ip[key]))
-            
+    '''
+    Group Process Rverse order of the Name & IP
+    '''
     def sortNamebyValue(self):
-        self.orderedName = collections.OrderedDict(sorted(self.name.items(), key=lambda kv: kv[1]))
-        #return self.orderedName
-    
+        self.orderedName = collections.OrderedDict(sorted(self.name.items(), key=lambda kv: kv[1],reverse=True))
     def sortIPbyValue(self):
-        self.orderedIP = collections.OrderedDict(sorted(self.ip.items(), key=lambda kv: kv[1]))
-        #return self.orderedIP
-    
+        self.orderedIP = collections.OrderedDict(sorted(self.ip.items(), key=lambda kv: kv[1],reverse=True))
+    '''
+    Export function to process the CSV
+    '''
     def saveNametoCSV(self):
         self.sortNamebyValue()
         try:
@@ -70,7 +102,6 @@ class text2Dic:
                     f.write("%s,%s\n"%(key,self.orderedName[key]))
         except IOError:
             print("I/O error")  
-            
     def saveIPtoCSV(self):
         self.sortIPbyValue()
         try:
@@ -78,26 +109,50 @@ class text2Dic:
                 for key in self.orderedIP.keys():
                     f.write("%s,%s\n"%(key,self.orderedIP[key]))
         except IOError:
-            print("I/O error") 
+            print("I/O error")
+    '''==========================================
+    JSON file for dealing with sytem process save
+    =========================================='''
+    def saveNametoJSON(self):
+        try:
+            with open('namedb.json', 'w') as fp:
+                json.dump(self.name, fp) 
+        except IOError:
+            print("I/O error. FIle still using" )
+    def saveIPtoJSON(self):
+        try:
+            with open('ipdb.json', 'w') as fp:
+                json.dump(self.ip, fp)
+        except IOError:
+            print("I/O error. FIle still using" )            
+    '''============================================
+    JSON file load for deadling with system restore
+    ============================================'''
+    def loadNametoDic(self):
+        try:
+            with open('namedb.json', 'r') as fp:
+                self.name = json.load(fp)
+        except IOError:
+            print("I/O error. FIle still using" )        
+    def loadIPtoDic(self):
+        try:
+            with open('ipdb.json', 'r') as fp:
+                self.ip = json.load(fp)
+        except IOError:
+            print("I/O error. FIle still using" )            
+        
 '''
 main function
 '''
-
 def main():
     startime = datetime.datetime.now()
     """
     create new jobs object to text2Dic
     """
     jobs = text2Dic()
-    #jobs.printNamebyAlphabet()
-    #jobs.printIPbyAlphabet()
-    jobs.saveIPtoCSV()
-    jobs.saveNametoCSV()
-    #Time Calculator
-    
-    
-    '''
-    '''
+    #jobs.saveIPtoCSV()
+    #jobs.saveNametoCSV()
+
     endtime = datetime.datetime.now()
     print("Total time used: ",endtime - startime)
     #Comment out for disable github push
