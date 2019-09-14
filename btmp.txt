@@ -1,13 +1,2 @@
-admin    ssh:notty    Sat Sep 14 05:30 - 05:30  (00:00)     115.124.94.146
-root     ssh:notty    Sat Sep 14 05:24 - 05:24  (00:00)     115.124.94.146
-minecraf ssh:notty    Sat Sep 14 05:19 - 05:19  (00:00)     115.124.94.146
-minecraf ssh:notty    Sat Sep 14 05:19 - 05:19  (00:00)     115.124.94.146
-minecraf ssh:notty    Sat Sep 14 05:14 - 05:14  (00:00)     115.124.94.146
-minecraf ssh:notty    Sat Sep 14 05:14 - 05:14  (00:00)     115.124.94.146
-user     ssh:notty    Sat Sep 14 05:09 - 05:09  (00:00)     115.124.94.146
-user     ssh:notty    Sat Sep 14 05:09 - 05:09  (00:00)     115.124.94.146
-user     ssh:notty    Sat Sep 14 05:04 - 05:04  (00:00)     115.124.94.146
-user     ssh:notty    Sat Sep 14 05:04 - 05:04  (00:00)     115.124.94.146
-mysql    ssh:notty    Sat Sep 14 05:00 - 05:00  (00:00)     115.124.94.146
 
-btmp begins Sat Sep 14 05:00:10 2019
+btmp begins Sat Sep 14 08:00:01 2019

@@ -69,7 +69,7 @@ class text2Dic:
                 if (lines[60:].rstrip('\n') in self.ip.keys()):
                     self.ip[lines[60:].rstrip('\n')] += 1
                 else:
-                    self.ip.add((lines[60:].rstrip('\n')),1)            
+                    self.ip.add((lines[60:]).rstrip('\n'),1)            
         with open('data/ipdb.json', 'w') as fp:
             json.dump(self.ip, fp)    
         with open('data/namedb.json', 'w') as fp:
