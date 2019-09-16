@@ -2,6 +2,7 @@
 Small Little Cage
 Author : Xia Hua 
 2019 Sep 12
+https://www.freebuf.com/sectool/170779.html
 '''
 import subprocess
 import datetime
@@ -10,11 +11,11 @@ import collections
 import json
 import os
 
-
 dirpath = os.getcwd()
 '''
 Dictionary Class
 Easy Add method for dictionary 
+'''
 '''
 class dicTemplate(dict): 
     # __init__ function 
@@ -22,8 +23,8 @@ class dicTemplate(dict):
         self = dict() 
     # Function to add key:value 
     def add(self, key, value): 
-        self[key] = value 
-        
+        self[key] = value     
+'''
 '''
 Text Handling ,dealing with text data
 methods:
@@ -31,29 +32,32 @@ nameProcess()              return name dic function
 printNamebyAlphabet()      to dissplay and print the name
 ipProcess()                return ip dic function
 printIPbyAlphabet() to display and print the ips
-
+1. copy the btmp file 
+2. decode the btmp file and save to txt 
+3. save ....
 ''' 
+
 class text2Dic:
     def __init__(self):
-        self.name = dicTemplate()
-        self.ip = dicTemplate()
-        self.orderedName = dicTemplate()
-        self.orderedIP = dicTemplate()
-        ''''''''''''''''''''''''''''''
+        self.name = dict() 
+        self.ip = dict() 
+        self.orderedName = dict() 
+        self.orderedIP = dict() 
+        ''''''''''''''''''''''''''''''        
         cmd1 = 'lastb -a > btmp.txt'
         os.system(cmd1)
         cmd2 = 'cp /var/log/btmp /home/tony/Small_Little_Cage/log/btmp'+str(datetime.datetime.now().date())+str(datetime.datetime.now().time())
         os.system(cmd2)
-        cmd3 = "> /var/log/btmp"
+        cmd3 = '> /var/log/btmp'
         os.system(cmd3)
-
+        ''''''''''''''''''''''''''''''
         if os.path.exists('data/namedb.json'):
             with open('data/namedb.json', 'r') as fp:
                 self.name = json.load(fp)
         if os.path.exists('data/ipdb.json'):
             with open('data/ipdb.json', 'r') as fp:
                 self.ip = json.load(fp)
-
+        ''''''''''''''''''''''''''''''''''''''''''    
         with open("btmp.txt") as f:
             '''
             In the case you are working with Big Data using readlines() 
@@ -65,11 +69,13 @@ class text2Dic:
                 if (lines[:7].rstrip() in self.name.keys()):
                     self.name[lines[:7].rstrip()] += 1
                 else:
-                    self.name.add((lines[:7]).rstrip(),1)
+                    #self.name.add((lines[:7]).rstrip(),1)
+                    self.name[(lines[:7]).rstrip()] = 1
                 if (lines[60:].rstrip('\n') in self.ip.keys()):
                     self.ip[lines[60:].rstrip('\n')] += 1
                 else:
-                    self.ip.add((lines[60:]).rstrip('\n'),1)            
+                    self.ip[((lines[60:]).rstrip('\n'))] = 1
+        ''''''''''''''''''''''''''''''''''''''''''            
         with open('data/ipdb.json', 'w') as fp:
             json.dump(self.ip, fp)    
         with open('data/namedb.json', 'w') as fp:
@@ -143,9 +149,10 @@ class text2Dic:
             with open('data/ipdb.json', 'r') as fp:
                 self.ip = json.load(fp)
         except IOError:
-            print("I/O error. FIle still using" )  
-  
-        
+            print("I/O error. FIle still using" )
+            
+            
+
 '''
 main function
 '''
@@ -162,13 +169,12 @@ def main():
     #endtime = datetime.datetime.now()
     #print("Total time used: ",endtime - startime)
     #Github PUSH
-    subprocess.call(["git", "add", "--all","."])
+    subprocess.call(["git", "add", "."])
     subprocess.call(["git", "commit", "-m", "auto import btmp snapshot " + str(datetime.datetime.now())])
     subprocess.call(["git", "push"])      
     
 if __name__ == "__main__":
     main()
-    
 
 '''
 Example TEXT
