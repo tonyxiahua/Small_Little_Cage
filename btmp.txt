@@ -1,2 +1,5 @@
+ftp      ssh:notty    Mon Sep 16 17:18 - 17:18  (00:00)     178.62.4.64
+prueba01 ssh:notty    Mon Sep 16 17:17 - 17:17  (00:00)     108-75-217-101.lightspeed.irvnca.sbcglobal.net
+prueba01 ssh:notty    Mon Sep 16 17:17 - 17:17  (00:00)     108-75-217-101.lightspeed.irvnca.sbcglobal.net
 
-btmp begins Mon Sep 16 17:17:30 2019
+btmp begins Mon Sep 16 17:17:53 2019
