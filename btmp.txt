@@ -1,5 +1,2 @@
-root     ssh:notty    Mon Sep 23 23:59 - 23:59  (00:00)     58.50.160.26
-root     ssh:notty    Mon Sep 23 23:59 - 23:59  (00:00)     58.50.160.26
-root     ssh:notty    Mon Sep 23 23:59 - 23:59  (00:00)     58.50.160.26
 
-btmp begins Mon Sep 23 23:59:07 2019
+btmp begins Tue Sep 24 00:00:01 2019
