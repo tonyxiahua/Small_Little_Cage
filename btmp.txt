@@ -1,3 +1,2 @@
-root     ssh:notty    Sun Oct  6 17:29 - 17:29  (00:00)     58.50.161.18
 
-btmp begins Sun Oct  6 17:29:49 2019
+btmp begins Mon Oct  7 00:00:01 2019
