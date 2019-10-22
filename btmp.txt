@@ -1,2 +1,4 @@
+root     ssh:notty    Tue Oct 22 10:01 - 10:01  (00:00)     b-fw-1-nat-ucr-secure-v331.ucr.edu
+root     ssh:notty    Tue Oct 22 09:57 - 09:57  (00:00)     b-fw-1-nat-ucr-secure-v331.ucr.edu
 
-btmp begins Mon Oct 21 00:00:01 2019
+btmp begins Tue Oct 22 09:57:53 2019
