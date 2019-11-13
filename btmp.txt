@@ -1,4 +1,2 @@
-root     ssh:notty    Tue Nov 12 18:50 - 18:50  (00:00)     71-84-68-13.dhcp.rvsd.ca.charter.com
-root     ssh:notty    Tue Nov 12 18:49 - 18:49  (00:00)     71-84-68-13.dhcp.rvsd.ca.charter.com
 
-btmp begins Tue Nov 12 18:49:56 2019
+btmp begins Wed Nov 13 00:00:01 2019
