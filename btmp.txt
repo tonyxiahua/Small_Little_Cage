@@ -1,6 +1,2 @@
-para     ssh:notty    Mon Dec 16 12:51 - 12:51  (00:00)     121.63.65.27
-para     ssh:notty    Mon Dec 16 11:42 - 11:42  (00:00)     121.63.65.27
-root     ssh:notty    Mon Dec 16 11:36 - 11:36  (00:00)     121.63.65.27
-root     ssh:notty    Mon Dec 16 05:45 - 05:45  (00:00)     121.63.65.27
 
-btmp begins Mon Dec 16 05:45:49 2019
+btmp begins Tue Dec 17 00:00:01 2019
