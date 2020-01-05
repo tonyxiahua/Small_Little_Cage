@@ -1,6 +1,2 @@
-root     ssh:notty    Sat Jan  4 21:40 - 21:40  (00:00)     222.68.48.223
-root     ssh:notty    Sat Jan  4 21:39 - 21:39  (00:00)     222.68.48.223
-root     ssh:notty    Sat Jan  4 21:39 - 21:39  (00:00)     222.68.48.223
-root     ssh:notty    Sat Jan  4 21:39 - 21:39  (00:00)     222.68.48.223
 
-btmp begins Sat Jan  4 21:39:35 2020
+btmp begins Sun Jan  5 00:00:01 2020
