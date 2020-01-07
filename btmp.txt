@@ -1,5 +1,2 @@
-para     ssh:notty    Mon Jan  6 18:41 - 18:41  (00:00)     101.81.83.225
-root     ssh:notty    Mon Jan  6 18:39 - 18:39  (00:00)     101.81.83.225
-root     ssh:notty    Mon Jan  6 18:39 - 18:39  (00:00)     101.81.83.225
 
-btmp begins Mon Jan  6 18:39:11 2020
+btmp begins Tue Jan  7 00:00:01 2020
