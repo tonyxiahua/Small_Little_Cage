@@ -1,4 +1,3 @@
-root     pts/6        Sun Jan 12 01:27 - 01:27  (00:00)     
-paraa    ssh:notty    Sun Jan 12 00:31 - 00:31  (00:00)     222.68.55.153
+para     ssh:notty    Mon Jan 13 21:41 - 21:41  (00:00)     222.68.55.153
 
-btmp begins Sun Jan 12 00:31:56 2020
+btmp begins Mon Jan 13 21:41:58 2020
