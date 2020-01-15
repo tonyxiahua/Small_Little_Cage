@@ -1,3 +1,2 @@
-root     pts/0        Tue Jan 14 17:41 - 17:41  (00:00)     
 
-btmp begins Tue Jan 14 17:41:39 2020
+btmp begins Wed Jan 15 00:00:01 2020
