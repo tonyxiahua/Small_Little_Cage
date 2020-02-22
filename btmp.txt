@@ -1,3 +1,2 @@
-para     ssh:notty    Fri Feb 21 12:44 - 12:44  (00:00)     58.50.160.60
 
-btmp begins Fri Feb 21 12:44:33 2020
+btmp begins Sat Feb 22 00:00:01 2020
