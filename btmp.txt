@@ -1,6 +1,3 @@
-root     ssh:notty    Tue Feb 25 12:05 - 12:05  (00:00)     71-84-68-13.dhcp.rvsd.ca.charter.com
-root     ssh:notty    Tue Feb 25 12:03 - 12:03  (00:00)     71-84-68-13.dhcp.rvsd.ca.charter.com
-root     ssh:notty    Tue Feb 25 03:29 - 03:29  (00:00)     71-84-68-13.dhcp.rvsd.ca.charter.com
-tony     ssh:notty    Tue Feb 25 03:25 - 03:25  (00:00)     71-84-68-13.dhcp.rvsd.ca.charter.com
+xie      pts/0        Wed Feb 26 18:02 - 18:02  (00:00)     
 
-btmp begins Tue Feb 25 03:25:08 2020
+btmp begins Wed Feb 26 18:02:19 2020
