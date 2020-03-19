@@ -1,3 +1,2 @@
-para     ssh:notty    Wed Mar 18 19:21 - 19:21  (00:00)     58.50.160.60
 
-btmp begins Wed Mar 18 19:21:56 2020
+btmp begins Thu Mar 19 00:00:02 2020
