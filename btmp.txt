@@ -1,3 +1,2 @@
-root     ssh:notty    Fri May  8 04:08 - 04:08  (00:00)     071-084-068-013.res.spectrum.com
 
-btmp begins Fri May  8 04:08:06 2020
+btmp begins Sat May  9 00:00:01 2020
