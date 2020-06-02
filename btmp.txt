@@ -1,2 +1,2 @@
 
-btmp begins Mon Jun  1 03:49:01 2020
+btmp begins Tue Jun  2 00:00:02 2020
